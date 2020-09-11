@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::resource('nivel', 'NivelController');
@@ -23,3 +23,4 @@ Route::resource('atividade', 'AtividadeController');
 Route::resource('paciente', 'PacienteController');
 Route::resource('resposta', 'RespostaController');
 Route::resource('consulta', 'ConsultaController');
+

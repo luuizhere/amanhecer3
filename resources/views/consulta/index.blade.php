@@ -1,9 +1,10 @@
 
 @extends('layout.app')
 @section('conteudo')
-
-<h3>Consulta de Habilidades</h3>
-@if(count($habilidades) > 0)
+    <div class="row">
+        <h3>Consultas</h3>
+    </div>
+    @if(count($consultas) > 0)
     <div class="jumbotron">
         <table class="table table-striped">
             <thead>
@@ -15,11 +16,11 @@
             </tr>
             </thead>
             <tbody>
-            @foreach($habilidades as $habilidade)
+            @foreach($consultas as $consulta)
                 <tr>
-                    <th scope="row">{{$habilidade->id}}</th>
-                    <td>{{$habilidade->nome}}</td>
-                    <td>{{$habilidade->nivel_id}}</td>
+                    <th scope="row">{{$consulta->id}}</th>
+                    <td>{{$consulta->nome}}</td>
+                    <td>{{$consulta->nivel_id}}</td>
                     <td><a href="" class="btn btn-sm btn-warning">Editar</a> <a href="" class="btn btn-sm btn-danger">Deletar</a></td>
                 </tr>
             @endforeach
@@ -29,4 +30,8 @@
 @else
     Não existem registros para consulta
 @endif
-@endSection
+<div class="row">
+    <br>
+    
+</div>
+@endsection

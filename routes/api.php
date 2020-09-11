@@ -1,8 +1,9 @@
 <?php
 
+use App\Atividade;
+use App\Habilidade;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Habilidade;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,5 +21,25 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::get('/habilidades/{id}', function($nivel_id){
-   return  Habilidade::where('nivel_id',$nivel_id)->get()->toJson();
+    // dd(1);
+   $habilidades =  Habilidade::where('nivel_id',$nivel_id)->get();
+   echo "<option default>Selecione</option>";
+   foreach($habilidades as $hab)
+   {
+       echo "<option value=".$hab->id.">".$hab->nome."</option>";
+   }
 });
+
+
+Route::get('/atividades/{id}', function($habilidade_id){
+    // dd(1);
+   $atividades =  Atividade::where('habilidade_id',$habilidade_id)->get();
+   echo "<option default>Selecione</option>";
+   foreach($atividades as $atividade)
+   {
+       echo "<option value=".$atividade->id.">".$atividade->nome."</option>";
+   }
+});
+
+
+

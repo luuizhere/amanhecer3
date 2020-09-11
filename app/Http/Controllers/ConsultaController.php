@@ -7,6 +7,7 @@ use App\Consulta;
 use App\Paciente;
 use App\Resposta;
 use App\Atividade;
+use App\Habilidade;
 use Illuminate\Http\Request;
 
 class ConsultaController extends Controller
@@ -18,7 +19,8 @@ class ConsultaController extends Controller
      */
     public function index()
     {
-        return  Consulta::all();
+        $consultas = Consulta::all();
+        return view('consulta.index',compact('consultas'));
     }
 
     /**
@@ -32,7 +34,8 @@ class ConsultaController extends Controller
         $respostas = Resposta::all();
         $pacientes = Paciente::all();
         $atividades = Atividade::all();
-        return view('consulta.create',compact('pacientes','atividades','respostas','niveis'));
+        $habilidade = Habilidade::all();
+        return view('consulta.create',compact('pacientes','atividades','respostas','niveis','habilidade'));
     }
 
     /**

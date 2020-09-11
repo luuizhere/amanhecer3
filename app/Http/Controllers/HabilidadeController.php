@@ -14,7 +14,8 @@ class HabilidadeController extends Controller
      */
     public function index()
     {
-        return Habilidade::all();
+        $habilidades = Habilidade::all();
+        return view('habilidade.index',compact('habilidades'));
     }
 
     /**

@@ -14,7 +14,8 @@ class AtividadeController extends Controller
      */
     public function index()
     {
-        return Atividade::all();
+        $atividades = Atividade::all();
+        return view('atividade.index',compact('atividades'));
     }
 
     /**

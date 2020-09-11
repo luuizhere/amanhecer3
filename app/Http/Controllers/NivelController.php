@@ -13,7 +13,8 @@ class NivelController extends Controller
      */
     public function index()
     {
-        return Nivel::all();
+        $niveis =  Nivel::all();
+        return view('niveis.index');
     }
 
     /**

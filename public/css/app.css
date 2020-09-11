@@ -1,0 +1,129 @@
+html{
+    font-family: 'Montserrat', sans-serif;
+    /* background-color:rgb(255, 208, 0); */
+}
+
+
+#app{
+    display: flex;
+    flex-direction: column;
+    /* background-image: url("http://cdn29.us1.fansshare.com/images/background/yellow-flowers-background-photo-1744794198.jpg"); */
+    
+}
+
+.panel{
+    padding:7px;
+    box-shadow: 0 2px 10px rgb(0,0,0,0.77);
+    width: 70%;
+    margin: 15px auto;
+    background-color: rgb(255, 255, 255);
+    border-radius: 7px;
+    /* background-image: url("http://cdn30.us1.fansshare.com/image/background/white-flower-background-wide-wallpaper-cc-bca-wallpaper-623401818.jpg"); */
+    /* background-image: url("http://cdn29.us1.fansshare.com/images/background/yellow-flowers-background-photo-1744794198.jpg"); */
+    /* background:  radial-gradient(circle, rgba(255,166,0,0.5998774509803921) 20%, rgba(255,205,0,0.6) 53%, rgba(255,158,0,0.6) 100%); */
+    background:  radial-gradient(circle, rgba(255,166,0,0.7) 20%, rgba(255,205,0,0.7) 53%, rgba(255,158,0,0.7) 100%);
+    /* background: radial-gradient(circle, rgba(255,166,0,1) 20%, rgba(255,205,0,1) 53%, rgba(255,158,0,1) 100%); */
+
+    /* height: 920px; */
+}
+
+.panel hr{
+    opacity: 0.9;
+}
+.logo{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu{
+    text-transform: uppercase;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 15px;
+    border-radius: 5px;
+    /* background-color: rgba(251, 255, 0, 0.356); */
+    
+}
+
+.menu a:hover{
+    background-color: rgba(255, 166, 0, 0.322);
+    border-radius: 5px;
+    
+}
+
+.rodape{
+    /* flex: 1; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* color:rgba(19, 19, 19, 0.486); */
+    /* position:absolute; */
+    /* bottom:0; */
+    /* width:100%; */
+}
+
+.conteudo{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.conteudo button{
+    margin-top: 25px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.conteudo .tabela{
+    width: 100%;
+}
+.conteudo .jumbotron{
+    margin-top:23px;
+    width: 90%;
+    background-color: white;
+    box-shadow: 0 2px 10px rgb(0,0,0,0.33);
+    padding:0px;
+    /* border-style:solid; */
+    /* border-color: rgba(128, 128, 128, 0.301); */
+}
+#dashboard {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 50px;
+    
+}
+#dashboard .numero{
+    font-size: 1cm;
+    
+}
+
+#dashboard .conteudoDash{
+    color: black;
+    font-size: 15px;
+    text-transform: uppercase;
+    width: 200px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.dashboardGraph{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
