@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,14 +14,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
+Route::middleware('auth')->group(function () {
+    Route::get('/', function () {
+        return view('home');
+    });
+    Route::resource('nivel', 'NivelController');
+    Route::resource('habilidade', 'HabilidadeController');
+    Route::resource('atividade', 'AtividadeController');
+    Route::resource('paciente', 'PacienteController');
+    Route::resource('resposta', 'RespostaController');
+    Route::resource('consulta', 'ConsultaController');
+    Route::get('consultas/{paciente_id}', 'ConsultaController@consultaByPaciente');
+
 });
+Auth::routes();
 
-Route::resource('nivel', 'NivelController');
-Route::resource('habilidade', 'HabilidadeController');
-Route::resource('atividade', 'AtividadeController');
-Route::resource('paciente', 'PacienteController');
-Route::resource('resposta', 'RespostaController');
-Route::resource('consulta', 'ConsultaController');
-
+Route::get('/', 'HomeController@index')->name('home');

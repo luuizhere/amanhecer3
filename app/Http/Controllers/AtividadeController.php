@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Nivel;
 use App\Atividade;
 use App\Habilidade;
+use Illuminate\Http\Request;
+
 class AtividadeController extends Controller
 {
     /**
@@ -15,7 +17,9 @@ class AtividadeController extends Controller
     public function index()
     {
         $atividades = Atividade::all();
-        return view('atividade.index',compact('atividades'));
+        $niveis = Nivel::all();
+        $habilidades = Habilidade::all();
+        return view('atividade.index',compact('atividades','niveis','habilidades'));
     }
 
     /**
@@ -25,8 +29,9 @@ class AtividadeController extends Controller
      */
     public function create()
     {   
+        $niveis = Nivel::all();
         $habilidades = Habilidade::all();
-        return view('atividade.create',compact('habilidades'));
+        return view('atividade.create',compact('habilidades','niveis'));
     }
 
     /**
@@ -40,7 +45,9 @@ class AtividadeController extends Controller
         $atividade = new Atividade();
         $atividade->nome = $request->nome;
         $atividade->habilidade_id = $request->habilidade;
+        $atividade->nivel_id = $request->nivel;
         $atividade->save();
+        return redirect('/atividade');
     }
 
     /**

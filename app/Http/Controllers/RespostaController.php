@@ -13,7 +13,8 @@ class RespostaController extends Controller
      */
     public function index()
     {
-        return Resposta::all();
+        $respostas= Resposta::all();
+        return view('resposta.index',compact('respostas'));
     }
 
     /**
@@ -38,7 +39,7 @@ class RespostaController extends Controller
         $resposta->titulo = $request->titulo;
         $resposta->sigla = $request->sigla;
         $resposta->save();
-
+        return redirect('/resposta');
     }
 
     /**

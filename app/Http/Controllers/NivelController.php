@@ -14,7 +14,7 @@ class NivelController extends Controller
     public function index()
     {
         $niveis =  Nivel::all();
-        return view('niveis.index');
+        return view('nivel.index',compact('niveis'));
     }
 
     /**
@@ -40,7 +40,7 @@ class NivelController extends Controller
         $nivel->regra_de = $request->regra_de;
         $nivel->regra_ate = $request->regra_ate;
         $nivel->save();
-
+        return redirect('/nivel');
         
     }
 

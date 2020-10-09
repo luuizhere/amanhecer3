@@ -19,6 +19,8 @@ class CreateAtividadesTable extends Migration
             $table->string('nome');
             $table->foreign('habilidade_id')->references('id')->on('habilidades');
             $table->bigInteger('habilidade_id')->unsigned();
+            $table->foreign('nivel_id')->references('id')->on('nivels');
+            $table->bigInteger('nivel_id')->unsigned();
         });
     }
 

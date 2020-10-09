@@ -31,9 +31,9 @@ Route::get('/habilidades/{id}', function($nivel_id){
 });
 
 
-Route::get('/atividades/{id}', function($habilidade_id){
+Route::get('/atividades/{id}', function($nivel_id){
     // dd(1);
-   $atividades =  Atividade::where('habilidade_id',$habilidade_id)->get();
+   $atividades =  Atividade::where('nivel_id',$nivel_id)->get();
    echo "<option default>Selecione</option>";
    foreach($atividades as $atividade)
    {

@@ -1,17 +1,19 @@
+
+@extends('layout.app')
+@section('conteudo')
+
+<h3>Nova Habilidade</h3>
+<hr>
+
 <form action="/habilidade" method="POST">
     @csrf
-    <div>
-        <input type="text" name="nome">
-    </div>
-    <div>
-        <select name="nivel" id="nivel">
-                <option value="">Selecione</option>
-                @foreach($niveis as $nivel)
-                    <option value="{{$nivel->id}}">{{$nivel->nome}}</option>
-                @endforeach
-
-        </select>
+    <div class="form-row">
+        <div class="col-md-12 mb-3">
+            <label for="nome">Nome da Habilidade</label>
+            <input type="text" name="nome" class="form-control form-control-sm">
+        </div>
     </div>
 
-    <button type="submit">Cadastrar</button>
+    <button type="submit" class="btn btn-sm btn-success">Cadastrar</button>
 </form>
+@endsection

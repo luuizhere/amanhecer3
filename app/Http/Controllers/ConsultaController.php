@@ -4,10 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Nivel;
 use App\Consulta;
+use App\Habilidade;
 use App\Paciente;
 use App\Resposta;
-use App\Atividade;
-use App\Habilidade;
 use Illuminate\Http\Request;
 
 class ConsultaController extends Controller
@@ -19,7 +18,7 @@ class ConsultaController extends Controller
      */
     public function index()
     {
-        $consultas = Consulta::all();
+        $consultas = Consulta::limit(5)->where('user_id',auth()->user()->id)->get();
         return view('consulta.index',compact('consultas'));
     }
 
@@ -33,9 +32,8 @@ class ConsultaController extends Controller
         $niveis = Nivel::all();
         $respostas = Resposta::all();
         $pacientes = Paciente::all();
-        $atividades = Atividade::all();
-        $habilidade = Habilidade::all();
-        return view('consulta.create',compact('pacientes','atividades','respostas','niveis','habilidade'));
+        $habilidades = Habilidade::all();
+        return view('consulta.create',compact('pacientes','niveis','respostas','habilidades'));
     }
 
     /**
@@ -46,7 +44,16 @@ class ConsultaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $consulta = new Consulta();
+        $consulta->data_consulta = $request->data_consulta;
+        $consulta->paciente_id = $request->paciente_id;
+        $consulta->atividade_id = $request->atividade_id;
+        $consulta->resposta_id = $request->resposta_id;
+        $consulta->habilidade_id = $request->habilidade_id;
+        $consulta->nivel_id = $request->nivel_id;
+        $consulta->user_id = $request->dr;
+        $consulta->save();
+        return redirect('/consulta');
     }
 
     /**
@@ -92,5 +99,12 @@ class ConsultaController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function consultaByPaciente($paciente_id)
+    {
+        $consultas = Consulta::where('paciente_id',$paciente_id)->orderBy('data_consulta')->get();
+        $paciente = Paciente::find($paciente_id);
+        return view('consulta.consultabypaciente',compact('consultas','paciente'));
     }
 }

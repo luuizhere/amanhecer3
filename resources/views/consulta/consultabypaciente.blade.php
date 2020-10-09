@@ -2,7 +2,7 @@
 @extends('layout.app')
 @section('conteudo')
     <div class="row">
-        <h3>Ultimas Consultas</h3>
+    <h3>Consultas de {{$paciente->nome}}</h3>
     </div>
     @if(count($consultas) > 0)
     <div class="jumbotron">
@@ -15,6 +15,7 @@
                 <th scope="col">Atividade</th>
                 <th scope="col">Resposta</th>
                 <th scope="col">Data</th>
+                <th scope="col">Dr(a)</th>
                 <th scope="col">Ações</th>
             </tr>
             </thead>
@@ -27,6 +28,7 @@
                     <td>{{$consulta->atividade->nome}}</td>
                     <td>{{$consulta->resposta->sigla}}</td>
                     <td>{{$consulta->data_consulta}}</td>
+                    <td>{{$consulta->dr->name}}</td>
                     <td><a href="" class="btn btn-sm btn-warning">Editar</a> <a href="" class="btn btn-sm btn-danger">Deletar</a></td>
                 </tr>
             @endforeach

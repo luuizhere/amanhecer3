@@ -13,9 +13,9 @@
                     5
                 </div>
         </div>
-        <div id="dashboard" class="jumbotron" style="background-color:rgb(255, 196, 0)">
+        <div id="dashboard" class="jumbotron" style="background-color:orange">
             <div class="conteudoDash">
-                Qtd Abertas
+                Atendimentos no dia
             </div>
             <div class="numero" style="color:black">
                 15
@@ -23,7 +23,7 @@
         </div>
         <div id="dashboard" class="jumbotron" style="background-color:rgba(0, 47, 255, 0.699)">
             <div class="conteudoDash">
-                Qtd Concluidas
+                Qtd Atendimentos
             </div>
             <div class="numero" style="color:white">
                 55

@@ -15,7 +15,8 @@ class PacienteController extends Controller
      */
     public function index()
     {
-        return Paciente::all();
+        $pacientes =  Paciente::all();
+        return view('paciente.index',compact('pacientes'));
     }
 
     /**
@@ -42,6 +43,7 @@ class PacienteController extends Controller
         $paciente->nascimento = $request->nascimento;
         $paciente->nivel_id = $request->nivel;
         $paciente->save();
+        return redirect('/paciente');
     }
 
     /**

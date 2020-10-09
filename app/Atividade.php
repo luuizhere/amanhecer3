@@ -10,4 +10,8 @@ class Atividade extends Model
     {
         return $this->belongsTo(Habilidade::class,'habilidade_id');
     }
+    public function nivel()
+    {
+        return $this->belongsTo(Nivel::class,'nivel_id');
+    }
 }

@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"> </script>
     <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -60,20 +60,38 @@
                               <a class="dropdown-item" href="/consulta/create">Nova Consulta</a>
                             </div>
                         </li>
-
+                        @if(auth()->user()->group)
+                          <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle" href="/admin" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Administrador
+                              </a>
+                              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/resposta">Consultar Respostas</a>
+                                <a class="dropdown-item" href="/resposta/create">Criar Respostas</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/nivel">Consultar Nivel</a>
+                                <a class="dropdown-item" href="/nivel/create">Criar Nivel</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/nivel">Consultar Usuarios</a>
+                                <a class="dropdown-item" href="{{ route('register') }}">Criar Usuario</a>
+                              </div>                          
+                              
+                          </li>
+                        @endif
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="/admin" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Administrador
+                              {{auth()->user()->name}}
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                              <a class="dropdown-item" href="/resposta">Consultar Respostas</a>
-                              <a class="dropdown-item" href="/resposta">Criar Respostas</a>
-                              <div class="dropdown-divider"></div>
-                              <a class="dropdown-item" href="/nivel">Consultar Nivel</a>
-                              <a class="dropdown-item" href="/nivel">Criar Nivel</a>
-                              <div class="dropdown-divider"></div>
-                              <a class="dropdown-item" href="/nivel">Consultar Usuarios</a>
-                              <a class="dropdown-item" href="/nivel">Criar Usuario</a>
+                              <a class="dropdown-item" href="/resposta">Trocar Senha</a>
+                              <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                              </a>
+                              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
                             </div>
                         </li>
                         

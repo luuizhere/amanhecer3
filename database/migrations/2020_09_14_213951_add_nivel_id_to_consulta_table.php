@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateHabilidadesTable extends Migration
+class AddNivelIdToConsultaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateHabilidadesTable extends Migration
      */
     public function up()
     {
-        Schema::create('habilidades', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-            $table->string('nome');
+        Schema::table('consultas', function (Blueprint $table) {
+            $table->foreign('nivel_id')->references('id')->on('nivels');
+            $table->bigInteger('nivel_id')->unsigned()->nullable();
         });
     }
 
@@ -27,6 +26,8 @@ class CreateHabilidadesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('habilidades');
+        Schema::table('consultas', function (Blueprint $table) {
+            //
+        });
     }
 }

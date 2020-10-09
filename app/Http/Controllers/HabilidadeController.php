@@ -25,8 +25,7 @@ class HabilidadeController extends Controller
      */
     public function create()
     {
-        $niveis = Nivel::all();
-        return view('habilidade.create',compact('niveis'));
+        return view('habilidade.create');
     }
 
     /**
@@ -38,9 +37,9 @@ class HabilidadeController extends Controller
     public function store(Request $request)
     {
         $habilidade = new Habilidade();
-        $habilidade->nivel_id = $request->nivel;
         $habilidade->nome = $request->nome;
         $habilidade->save();
+        return redirect('/habilidade');
     }
 
     /**
